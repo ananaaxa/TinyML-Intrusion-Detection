@@ -17,5 +17,5 @@ def get_global_model():
     # Send the global model weights
     return jsonify({"model_weights": global_model_weights}), 200
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
