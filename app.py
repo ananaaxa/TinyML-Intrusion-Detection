@@ -4,13 +4,14 @@ app = Flask(__name__)
 
 # Placeholder for the global model weights
 global_model_weights = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
-local_updates = [0.1, 0.22, 0.3, 0.94, 0.25, 0.6, 0.7, 0.84, 0.93, 0.8]  # List to store updates from different clients
+# local_updates = [0.1, 0.2, 0.3, 0.94, 0.25, 0.6, 0.7, 0.84, 0.93, 0.8]  # List to store updates from different clients
+local_updates = []
 
 @app.route('/update_model', methods=['POST'])
 def update_model():
     data = request.get_json()
     local_weights = data.get("model_weights")
-    
+    print(f"{local_updates}")
     if local_weights:
         local_updates.append(local_weights)
         print("Received local update:", local_weights)
