@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import logging
 
 app = Flask(__name__)
 
@@ -11,11 +12,13 @@ local_updates = []
 def update_model():
     data = request.get_json()
     local_weights = data.get("model_weights")
-    print(f"{local_updates}")
+    logging.info(local_weights)
     if local_weights:
         local_updates.append(local_weights)
         print("Received local update:", local_weights)
         
+        logging.info(local_updates)
+
         # If enough local updates have been received, update the global model
         if len(local_updates) >= 3:  # Example threshold; adjust as needed
             update_global_model()
