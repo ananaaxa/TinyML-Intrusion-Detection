@@ -40,5 +40,5 @@ def update_global_model():
     global_model_weights = aggregated_weights
     print("Global model updated:", global_model_weights)
 
-if __name__ == '_main_':
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
